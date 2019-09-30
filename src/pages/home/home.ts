@@ -1,4 +1,4 @@
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -13,6 +13,10 @@ export class HomePage {
   }
 
   test(){
+    let option:BarcodeScannerOptions = {
+      resultDisplayDuration:0,
+      formats:"QR_CODE"
+    };
     this.barcodeScanner.scan().then(barcodeData => {
       alert("识别成功")
      }).catch(err => {
